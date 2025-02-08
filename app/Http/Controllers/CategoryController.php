@@ -29,11 +29,10 @@ class CategoryController extends Controller
     }
 
     public function edit(int $id)
-    {
-        
-        $category =  Category::where ('id', $id)->first();
+    { 
+        $category =  Category::findOrFail ($id);
 
-        return view('categories.edit', compact('catagory'));
+        return view('categories.edit', compact('category'));
     }
 
     public function update(int $id, Request $request)

@@ -8,7 +8,7 @@
 <body>
     <h2>Index</h2>
 
-    <a href="{{ route('categories.') }}"></a>
+    <a href="{{ route('categories.create') }}">Create</a>
     <table border="1">
         <thead>
             <tr>

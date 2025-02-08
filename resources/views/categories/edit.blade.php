@@ -9,7 +9,7 @@
 <h2>Edit</h2>
 
 <a href="{{ route('categories.index') }}">Back</a><br>
-<form action="{{ route('categories.update', ['id' => $category->id]) }}" method="post">
+<form action="{{ route('categories.update', ['id' => $category->id]) }}" method="POST">
     @csrf
     @method('PUT')
     <div>
