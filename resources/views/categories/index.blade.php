@@ -8,6 +8,7 @@
 <body>
     <h2>Index</h2>
 
+    <a href="{{ route('categories.') }}"></a>
     <table border="1">
         <thead>
             <tr>
@@ -22,11 +23,20 @@
             @foreach ($categories as $category)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $category->$name }}</td>
-                <td>{{ $category->$created_at }}</td>
-                <td>{{ $category->$updated_at }}</td>
-                <td>
-                   
+                <td>{{ $category->name }}</td>
+                <td>{{ $category->created_at }}</td>
+                <td>{{$category->updated_at }}</td>
+                <td>                 
+                       <a href="{{ route('categories.edit', ['id' => $category->id]) }}">Edit</a>
+   
+                       <form action="{{ route('categories.destroy', ['id' => $category->id]) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit">Delete </button>
+                       </form>
+                    </form>
+                </td>
             </tr>
             
             @endforeach
